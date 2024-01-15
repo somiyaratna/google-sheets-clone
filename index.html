@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Sheets</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./menu.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="options">
+      <div class="menu">
+        <select
+          name="fontfamily"
+          id="font-family"
+          onchange="changeFontFamily(this)"
+        >
+          <option value="monospace" id="monospace">Monospace</option>
+          <option value="sans-serif" id="sans-serif">Sans-serif</option>
+          <option value="arial" id="arial">Arial</option>
+          <option value="times-new-roman" id="times-new-roman">
+            Times New Roman
+          </option>
+        </select>
+
+        <select name="fontSize" id="fontSize" onchange="changeFontSize(this)">
+          <option value="12" selected>12</option>
+          <option value="16">16</option>
+          <option value="20">20</option>
+          <option value="24">24</option>
+          <option value="28">28</option>
+          <option value="32">32</option>
+          <option value="36">36</option>
+        </select>
+        <button id="bold" onclick="toggleBold(this)">B</button>
+        <button id="italic" onclick="toggleItalic (this)">I</button>
+        <button id="underline" onclick="toggleUnderline(this)">U</button>
+        <button
+          class="material-icons active-option text-align"
+          data-value="start"
+          onclick="textAlign(this)"
+        >
+          format_align_left
+        </button>
+        <button
+          class="material-icons text-align"
+          data-value="right"
+          onclick="textAlign(this)"
+        >
+          format_align_right
+        </button>
+        <button
+          class="material-icons text-align"
+          data-value="center"
+          onclick="textAlign(this)"
+        >
+          format_align_center
+        </button>
+
+        <button id="text-color">
+          <label for="color-picker"
+            ><span class="material-icons"> colorize </span></label
+          >
+          <input
+            type="color"
+            id="color-picker"
+            style="visibility: hidden; width: 0; height: 0"
+            oninput="changeTextColor(this)"
+          />
+        </button>
+
+        <button id="bgcolor">
+          <label for="bgcolor-picker"
+            ><span class="material-icons"> format_color_fill </span></label
+          >
+          <input
+            type="color"
+            id="bgcolor-picker"
+            style="visibility: hidden; width: 0; height: 0"
+            oninput="changeBackgroundColor(this)"
+          />
+        </button>
+      </div>
+    </div>
+    <main>
+      <div id="header">
+        <b
+          id="active-cell"
+          style="position: sticky; left: 0; top: 0; background-color: #fff"
+        ></b>
+      </div>
+      <section id="body"></section>
+    </main>
+    <script src="./options.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
